@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SILogger.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    SILogInfo(@"这是Info打印模式");
+    SILogDebug(@"这是Debug打印模式");
+    SILogger  *  myLog = [SILogger new];
+    [myLog logLevel: SILogLevelWARN format:@"这是Warn打印模式"];
+    [myLog logLevel: SILogLevelERROR format:@"这是Error打印模式"];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
